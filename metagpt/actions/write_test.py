@@ -5,6 +5,8 @@
 @Author  : alexanderwu
 @File    : write_test.py
 """
+from tenacity import retry, stop_after_attempt, wait_fixed
+
 from metagpt.logs import logger
 from metagpt.actions.action import Action
 from metagpt.utils.common import CodeParser
@@ -33,8 +35,10 @@ class WriteTest(Action):
     def __init__(self, name="WriteTest", context=None, llm=None):
         super().__init__(name, context, llm)
 
+    @retry(stop=stop_after_attempt(10), wait=wait_fixed(1))
     async def write_code(self, prompt):
-        code_rsp = await self._aask(prompt)
+        system_msgs = [self.prefix]
+        code_rsp = await self._aask_no_prefix(prompt, system_msgs)
         code = CodeParser.parse_code(block="", text=code_rsp)
         return code
 
