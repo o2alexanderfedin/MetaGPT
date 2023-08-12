@@ -175,7 +175,7 @@ class OpenAIGPTAPI(BaseGPTAPI, RateLimiter):
                 "max_tokens": self.get_max_tokens(messages),
                 "n": 1,
                 "stop": None,
-                "temperature": 0.3,
+                "temperature": CONFIG.openai_api_temperature,
             }
         else:
             kwargs = {
@@ -184,7 +184,7 @@ class OpenAIGPTAPI(BaseGPTAPI, RateLimiter):
                 "max_tokens": self.get_max_tokens(messages),
                 "n": 1,
                 "stop": None,
-                "temperature": 0.3,
+                "temperature": CONFIG.openai_api_temperature,
             }
         kwargs["timeout"] = 3
         return kwargs

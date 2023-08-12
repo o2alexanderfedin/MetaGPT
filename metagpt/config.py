@@ -57,6 +57,7 @@ class Config(metaclass=Singleton):
         self.openai_api_version = self._get("OPENAI_API_VERSION")
         self.openai_api_rpm = self._get("RPM", 3)
         self.openai_api_model = self._get("OPENAI_API_MODEL", "gpt-4")
+        self.openai_api_temperature = self._get("OPENAI_API_TEMPERATURE")
         self.max_tokens_rsp = self._get("MAX_TOKENS", 2048)
         self.deployment_id = self._get("DEPLOYMENT_ID")
 
