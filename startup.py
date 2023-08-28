@@ -34,7 +34,7 @@ def main(idea: str, investment: float = 20.0, n_round: int = 5, code_review: boo
     :param code_review: Whether to use code review.
     :return:
     """
-    if False:
+    if True:
         idea = '''
             Design a Prompt Gateway System for an LLM (Large Language Model) with the following features:
             1. The way of Access: The Prompt Gateway implements the RESTful API via a specific URL with swagger support.
@@ -83,11 +83,17 @@ def main(idea: str, investment: float = 20.0, n_round: int = 5, code_review: boo
                and troubleshooting potential issues. Use markdown (.md) format for the documentation.
             '''
         idea = '''
-            Design and develop hybrid sorting algorithm in Python.
-            It should Use QuickSort (https://en.wikipedia.org/wiki/Quicksort) for the number of items equal
-            or more than 5, and use simple BubbleSort (https://en.wikipedia.org/wiki/Bubble_sort) for less than 5 items.
-            Create good unit tests for the code.
-            Document everything in code comments and create necessary UML diagrams in separate files. 
+            Create a Prompt Gateway for an external LLM with these specifications:
+            - Prompt Gateway is accessible to clients via a specific RESTful API URL.
+            - Prompt gateway reliably accepts prompts, then applies optional transformations, and sends transformed prompts to the LLM.
+            - Prompt Gateway handles Prompt Transformations via any number of external and/or internal Plugin modules.
+            - Prompt Gateway uses an internal rule engine to determine the order of the Prompt Transformations by the Plugins.
+            - An Admin can configure the Prompt Gateway with any number of Plugins.
+            - Prompt Transformation Plugins are accessible to the Prompt Gateway only via their respective RESTful endpoint URLs.
+            
+            Provide a local startup shell script.
+            Create deployment artifacts for Ansible and Docker.
+            Produce comprehensive documentation: usage, plugin configuration, and troubleshooting.
             '''
     code_review = True
     run_tests = True
